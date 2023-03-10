@@ -22,7 +22,7 @@ const Form: React.FC<Props> = () => {
   return (
     <div className="max-w-sm rounded overflow-hidden shadow-lg py-4 pr-2">
       <form className="w-full max-w-sm" onSubmit={submitHandler}>
-        <div className="md:flex md:items-center mb-6">
+        <div className="md:flex md:items-center mb-5">
           <div className="md:w-1/3">
             <label className="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4">
               Full Name
