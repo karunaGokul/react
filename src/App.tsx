@@ -1,23 +1,32 @@
 import React from "react";
 import "./App.css";
-import SearchTodo from "./HOC/TodoList";
+import BookList from "./Contexts/BookList";
+import Navbar from "./Contexts/NavBar";
+import ToggleTheme from "./Contexts/ToggleTheme";
+import ThemeContextProvider from "./Contexts/ThemeContext";
+/* import SearchTodo from "./HOC/TodoList";
 import TodoList from "./HOC/TodoList";
 import SearchUser from "./HOC/UserList";
-// import Form from "./Form/Form";
-import UserList from "./HOC/UserList";
+import Form from "./Form/Form";
+import UserList from "./HOC/UserList"; */
 
 function App() {
   return (
-    <div className="App">
-      {/* <Form /> */}
+    <div className="max-w-screen-sm my-14 mx-auto text-center">
+      <ThemeContextProvider>
+      {/* <Form />
       <div>
-       {/*  <UserList /> */}
+        <UserList />
        <SearchUser />
       </div>
       <div>
-        {/* <TodoList /> */}
+        <TodoList />
         <SearchTodo />
-      </div>
+      </div> */}
+      <Navbar />
+      <BookList />
+      <ToggleTheme />
+      </ThemeContextProvider>
     </div>
   );
 }
