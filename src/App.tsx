@@ -4,6 +4,7 @@ import BookList from "./Contexts/BookList";
 import Navbar from "./Contexts/NavBar";
 import ToggleTheme from "./Contexts/ToggleTheme";
 import ThemeContextProvider from "./Contexts/ThemeContext";
+import AuthContextProvider from "./Contexts/AuthContext";
 /* import SearchTodo from "./HOC/TodoList";
 import TodoList from "./HOC/TodoList";
 import SearchUser from "./HOC/UserList";
@@ -14,7 +15,8 @@ function App() {
   return (
     <div className="max-w-screen-sm my-14 mx-auto text-center">
       <ThemeContextProvider>
-      {/* <Form />
+        <AuthContextProvider>
+          {/* <Form />
       <div>
         <UserList />
        <SearchUser />
@@ -23,9 +25,10 @@ function App() {
         <TodoList />
         <SearchTodo />
       </div> */}
-      <Navbar />
-      <BookList />
-      <ToggleTheme />
+          <Navbar />
+          <BookList />
+          <ToggleTheme />
+        </AuthContextProvider>
       </ThemeContextProvider>
     </div>
   );

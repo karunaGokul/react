@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { AuthContext } from "./AuthContext";
 import { ThemeContext } from "./ThemeContext";
 
 class Navbar extends Component {
@@ -9,25 +10,38 @@ class Navbar extends Component {
     const theme = isLightTheme ? light : dark; */
 
     return (
-      <ThemeContext.Consumer>
-        {(context) => {
-          const { isLightTheme, light, dark }: any = context;
-          const theme = isLightTheme ? light : dark;
-          return (
-            <nav
-              className="p-12"
-              style={{ background: theme.ui, color: theme.syntax }}
-            >
-              <h1>Context App</h1>
-              <ul className="p-0">
-                <li className="my-0 mx-7 inline-block">Home</li>
-                <li className="my-0 mx-7 inline-block">About</li>
-                <li className="my-0 mx-7 inline-block">Contact</li>
-              </ul>
-            </nav>
-          );
-        }}
-      </ThemeContext.Consumer>
+        
+      /* multiple context can't be used with two contextType method 
+      instead we can use one with contextType and other with consumer type 
+      else can use both in consumer type as follows. */
+
+      <AuthContext.Consumer>
+        {(authContext) => (
+          <ThemeContext.Consumer>
+            {(themeContext) => {
+              const { isAuthenticated, toggleAuth } = authContext;
+              const { isLightTheme, light, dark }: any = themeContext;
+              const theme = isLightTheme ? light : dark;
+              return (
+                <nav
+                  className="p-12"
+                  style={{ background: theme.ui, color: theme.syntax }}
+                >
+                  <h1>Context App</h1>
+                  <div onClick={toggleAuth}>
+                    {isAuthenticated ? "Logged In" : "Logged Out"}
+                  </div>
+                  <ul className="p-0">
+                    <li className="my-0 mx-7 inline-block">Home</li>
+                    <li className="my-0 mx-7 inline-block">About</li>
+                    <li className="my-0 mx-7 inline-block">Contact</li>
+                  </ul>
+                </nav>
+              );
+            }}
+          </ThemeContext.Consumer>
+        )}
+      </AuthContext.Consumer>
     );
   }
 }
