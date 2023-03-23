@@ -1,12 +1,12 @@
 import React from "react";
 import "./App.css";
-/* import BookList from "./Contexts/BookList";
+import BookList from "./Contexts/BookList";
 import Navbar from "./Contexts/NavBar";
 import ToggleTheme from "./Contexts/ToggleTheme";
 import ThemeContextProvider from "./Contexts/ThemeContext";
-import AuthContextProvider from "./Contexts/AuthContext"; */
+import AuthContextProvider from "./Contexts/AuthContext";
 
-import NovelList from "./Hooks/NovelList";
+// import NovelList from "./Hooks/NovelList";
 
 /* import SearchTodo from "./HOC/TodoList";
 import TodoList from "./HOC/TodoList";
@@ -18,7 +18,7 @@ function App() {
   return (
     <div className="max-w-screen-sm my-14 mx-auto text-center">
 
-      <NovelList />
+      {/* <NovelList /> */}
       
       {/* <Form />
       <div>
@@ -29,13 +29,13 @@ function App() {
         <TodoList />
         <SearchTodo />
       </div> */}
-      {/* <ThemeContextProvider>
+      <ThemeContextProvider>
         <AuthContextProvider>
           <Navbar />
           <BookList />
           <ToggleTheme />
         </AuthContextProvider>
-      </ThemeContextProvider> */}
+      </ThemeContextProvider>
     </div>
   );
 }
