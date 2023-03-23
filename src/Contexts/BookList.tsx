@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import { BookContext } from "./BookContext";
 import { ThemeContext } from "./ThemeContext";
 
 /* class BookList extends Component {
@@ -24,6 +25,8 @@ we can use the useContext hook or context.consumer method */
 
 const BookList = () => {
   const { isLightTheme, light, dark } = useContext(ThemeContext);
+  const { books } = useContext(BookContext);
+
   const theme = isLightTheme ? light : dark;
   return (
     <div
@@ -31,7 +34,18 @@ const BookList = () => {
       style={{ background: theme.bg, color: theme.syntax }}
     >
       <ul className="p-0 list-none">
-        <li
+        {books.map((book: any) => {
+          return (
+            <li
+              key={book.id}
+              className="p-0 mx-auto my-10 rounded-3xl"
+              style={{ background: theme.ui }}
+            >
+              {book.title}
+            </li>
+          );
+        })}
+        {/* <li
           className="p-0 mx-auto my-10 rounded-3xl"
           style={{ background: theme.ui }}
         >
@@ -48,7 +62,7 @@ const BookList = () => {
           style={{ background: theme.ui }}
         >
           the final empire
-        </li>
+        </li> */}
       </ul>
     </div>
   );

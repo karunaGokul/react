@@ -5,6 +5,7 @@ import Navbar from "./Contexts/NavBar";
 import ToggleTheme from "./Contexts/ToggleTheme";
 import ThemeContextProvider from "./Contexts/ThemeContext";
 import AuthContextProvider from "./Contexts/AuthContext";
+import BookContextProvider from "./Contexts/BookContext";
 
 // import NovelList from "./Hooks/NovelList";
 
@@ -17,9 +18,8 @@ import UserList from "./HOC/UserList"; */
 function App() {
   return (
     <div className="max-w-screen-sm my-14 mx-auto text-center">
-
       {/* <NovelList /> */}
-      
+
       {/* <Form />
       <div>
         <UserList />
@@ -32,7 +32,9 @@ function App() {
       <ThemeContextProvider>
         <AuthContextProvider>
           <Navbar />
-          <BookList />
+          <BookContextProvider>
+            <BookList />
+          </BookContextProvider>
           <ToggleTheme />
         </AuthContextProvider>
       </ThemeContextProvider>
